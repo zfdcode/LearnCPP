@@ -12,7 +12,7 @@ BSTree::BSTree() {
     root = nullptr;
 }
 
-Node *BSTree::find(int key, Node *node) {
+Node* BSTree::find(int key, Node *node) {
     //if this node is not null
     if (node != nullptr) {
         //compare the key value with node key value
@@ -42,21 +42,27 @@ Node *BSTree::find(int key, Node *node) {
 void BSTree::insert(int key) {
     cout << "starting to insert the key " + to_string(key) << endl;
     if (root == nullptr) {
-        root = new Node(key);
+        root = new Node(key, nullptr);
         cout << "the key is placed in root" << endl;
     } else {
         Node *node = find(key, root);
         if (key != node->key) {
             if (key < node->key) {
-                node->leftChild = new Node(key);
+                node->leftChild = new Node(key, node);
             } else {
-                node->rightChild = new Node(key);
+                node->rightChild = new Node(key, node);
             }
+        } else {
+            // do nothing
         }
     }
 }
 
-void BSTree::print_bstree() {
+void BSTree::show_bstree() {
+
+}
+
+Node *BSTree::find_successor(Node *node) {
 
 }
 
@@ -64,4 +70,4 @@ bool Node::has_child() {
     return leftChild != nullptr || rightChild != nullptr;
 }
 
-Node::Node(int key) : key(key), leftChild(nullptr), rightChild(nullptr) {}
+Node::Node(int key, Node *parent) : key(key), parent(parent), leftChild(nullptr), rightChild(nullptr) {}

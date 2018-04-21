@@ -11,16 +11,20 @@ using namespace std;
 
 class Node {
 public:
+    Node(int key, Node *parent);
+
     int key;
+    Node *parent;
     Node *leftChild;
     Node *rightChild;
 
-    explicit Node(int key);
 
     bool has_child();
 };
 
 class BSTree {
+private:
+    Node *root;
 public:
     BSTree();
 
@@ -28,12 +32,12 @@ public:
 
     void insert(int key);
 
-    void print_bstree();
-
     Node *getRoot() const;
 
-private:
-    Node *root;
+    Node *find_successor(Node *node);
+
+
+    void show_bstree();
 };
 
 #endif //LEARNCPP_TREE_H
