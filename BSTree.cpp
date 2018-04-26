@@ -12,7 +12,7 @@ BSTree::BSTree() {
     root = nullptr;
 }
 
-Node* BSTree::find(int key, Node *node) {
+Node *BSTree::find(int key, Node *node) {
     //if this node is not null
     if (node != nullptr) {
         //compare the key value with node key value
@@ -22,14 +22,14 @@ Node* BSTree::find(int key, Node *node) {
         } else if (key < node->key) {
             //check left child tree
             if (node->leftChild != nullptr) {
-                find(key, node->leftChild);
+                return find(key, node->leftChild);
             } else {
                 return node;
             }
         } else {
             //check right child tree
             if (node->rightChild != nullptr) {
-                find(key, node->rightChild);
+                return find(key, node->rightChild);
             } else {
                 return node;
             }
@@ -39,8 +39,8 @@ Node* BSTree::find(int key, Node *node) {
     }
 }
 
-void BSTree::insert(int key) {
-    cout << "starting to insert the key " + to_string(key) << endl;
+void BSTree::insert_key(int key) {
+    //cout << "starting to insert the key " + to_string(key) << endl;
     if (root == nullptr) {
         root = new Node(key, nullptr);
         cout << "the key is placed in root" << endl;
@@ -56,10 +56,44 @@ void BSTree::insert(int key) {
             // do nothing
         }
     }
+    //cout << "end of inserting the key " + to_string(key) << endl;
+}
+
+void BSTree::delete_key(int key) {
+    //cout << "starting to delete the key" + to_string(key) << endl;
+    //if empty tree
+    /*
+    if (root == nullptr) {
+        cout << "the tree is empty" << endl;
+    } else {
+        // find the node
+        Node *node = find(key, root);
+        if (node->key != key) {
+            cout << "no such node in tree" << endl;
+        } else {
+            // remove the connection between parend and child node
+            if (node->parent->rightChild->key == key) {
+                node->parent->rightChild = nullptr;
+            } else {
+                node->parent->leftChild = nullptr;
+            }
+        }
+    }*/
+    //cout << "end of deleting the key" + to_string(key) << endl;
+}
+
+void BSTree::show_bstree_helper(Node *node) {
+    if (node == nullptr) {
+        return;
+    }
+    show_bstree_helper(node->leftChild);
+    cout << node->key << " ";
+    show_bstree_helper(node->rightChild);
 }
 
 void BSTree::show_bstree() {
-
+    show_bstree_helper(root);
+    cout << endl;
 }
 
 Node *BSTree::find_successor(Node *node) {

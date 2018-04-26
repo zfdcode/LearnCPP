@@ -30,7 +30,7 @@ public:
 
     Node *find(int key, Node *node);
 
-    void insert(int key);
+    void insert_key(int key);
 
     Node *getRoot() const;
 
@@ -38,6 +38,10 @@ public:
 
 
     void show_bstree();
+
+    void delete_key(int key);
+
+    void show_bstree_helper(Node *node);
 };
 
 #endif //LEARNCPP_TREE_H
