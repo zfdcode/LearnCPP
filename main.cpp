@@ -3,16 +3,18 @@
 #include "TestCpp.h"
 #include "BookCPP.h"
 #include "gurobi_c++.h"
+#include "Gurobi.h"
 
 using namespace std;
 
 void TestBTree();
 void TestCPP();
+void TestGurobi();
 
 int main() {
-    TestCPP();
+    //TestCPP();
     //TestBTree();
-
+    TestGurobi();
     return 0;
 }
 
@@ -42,4 +44,10 @@ void TestCPP(){
     TestCpp testCpp = TestCpp();
     testCpp.TestFunction1();
     testCpp.TestFunction2(2);
+}
+
+void TestGurobi() {
+    Gurobi gurobi = Gurobi();
+    gurobi.test();
+
 }
