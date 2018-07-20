@@ -8,13 +8,17 @@
 using namespace std;
 
 void TestBTree();
+
 void TestCPP();
+
 void TestGurobi();
 
 int main() {
     //TestCPP();
     //TestBTree();
-    TestGurobi();
+    //TestGurobi();
+    int graph[10][100];
+    cout << graph << endl;
     return 0;
 }
 
@@ -40,7 +44,7 @@ void TestBTree() {
     //cout << to_string(root->key) + to_string(root->leftChild->key) + to_string(root->rightChild->key) << endl;
 };
 
-void TestCPP(){
+void TestCPP() {
     TestCpp testCpp = TestCpp();
     testCpp.TestFunction1();
     testCpp.TestFunction2(2);
