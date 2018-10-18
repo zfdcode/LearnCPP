@@ -14,6 +14,8 @@ public:
     Gurobi();
 
     void test();
+
+    void test2();
 };
 
 

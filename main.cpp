@@ -16,9 +16,9 @@ void TestGurobi();
 int main() {
     //TestCPP();
     //TestBTree();
-    //TestGurobi();
-    int graph[10][100];
-    cout << graph << endl;
+    TestGurobi();
+    //int graph[10][100];
+    //cout << graph << endl;
     return 0;
 }
 
@@ -52,6 +52,7 @@ void TestCPP() {
 
 void TestGurobi() {
     Gurobi gurobi = Gurobi();
-    gurobi.test();
+    //gurobi.test();
+    gurobi.test2();
 
 }

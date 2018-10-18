@@ -97,7 +97,7 @@ void BSTree::show_bstree() {
 }
 
 Node *BSTree::find_successor(Node *node) {
-
+    return nullptr;
 }
 
 bool Node::has_child() {
